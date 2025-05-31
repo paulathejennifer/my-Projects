@@ -1,11 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reviews | The Daily Brew</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-<body>
+
+<body class="reviews-page">
+    <header>
+        <h1>The Daily Brew</h1>
+         <h2>What Our Customers Say</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="reviews.html">Reviews</a>
+        </nav>
+       
+    </header>
+
+    <section class="reviews-container">
+
+
+        <div class="review-card hidden">
+            <div class="review-info">
+                <img src="images/reviewer1.jpg" alt="" class="reviewer-avatar">
+                <h3>Sofia N.</h3>
+            </div>
+            <p>"Best coffee i have had in ages. The vibe is unmatched!"</p>
+            <p class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+
+
+        </div>
+
+        <div class="review-card hidden">
+            <div class="review-info">
+
+
+                <img src="images/reviewer2.jpg" alt="" class="reviewer-avatar">
+                <h3>Jayden R.</h3>
+            </div>
+            <p>"Best coffee i have had in ages. The vibe is unmatched!"</p>
+            <p class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></p>
+        </div>
+
+        <div class="review-card hidden">
+            <div class="review-info">
+
+
+                <img src="images/reviewer3.jpg" alt="" class="reviewer-avatar">
+                <h3>Jayden R.</h3>
+            </div>
+            <p>"Best coffee i have had in ages. The vibe is unmatched!"</p>
+            <p class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></p>
+        </div>
+
+        <div class="review-card hidden">
+            <div class="review-info">
+
+
+                <img src="images/reviewer3.jpg" alt="" class="reviewer-avatar">
+                <h3>Jayden R.</h3>
+            </div>
+            <p>"Best coffee i have had in ages. The vibe is unmatched!"</p>
+            <p class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></p>
+        </div>
+
+        <div class="review-card hidden">
+            <div class="review-info">
+
+
+                <img src="images/reviewer3.jpg" alt="" class="reviewer-avatar">
+                <h3>Jayden R.</h3>
+            </div>
+            <p>"Best coffee i have had in ages. The vibe is unmatched!"</p>
+            <p class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></p>
+        </div>
+
+
+    </section>
+
+
+    <section class="submit-review">
+        <h2>Leave a Review</h2>
+        <form id="review-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <textarea name="" id="review-text" placeholder="Your Review" rows="4"></textarea>
+            <select name="" id="rating" required>
+                <option value="''">Rating</option>
+                <option value="⭐">⭐</option>
+                <option value="⭐⭐">⭐⭐</option>
+                <option value="⭐⭐⭐">⭐⭐⭐</option>
+                <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+
     
+        
+<script>
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+
+
+  document.getElementById('review-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const reviewText = document.getElementById('review-text').value.trim();
+    const rating = document.getElementById('rating').value;
+    const submitBtn = document.querySelector('button[type="submit"]');
+
+    if (!name || !reviewText || !rating) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    submitBtn.textContent = "Please wait...";
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+      alert("Thank you for your review!");
+
+
+      const newCard = document.createElement('div');
+      newCard.classList.add('review-card', 'show');
+
+      const reviewerInfo = document.createElement('div');
+      reviewerInfo.className = 'review-info';
+
+      const avatar = document.createElement('img');
+      avatar.src = 'images/default-avatar.png';
+      avatar.alt = name;
+      avatar.className = 'reviewer-avatar';
+
+      const h3 = document.createElement('h3');
+      h3.textContent = name;
+
+      reviewerInfo.appendChild(avatar);
+      reviewerInfo.appendChild(h3);
+
+      const reviewPara = document.createElement('p');
+      reviewPara.textContent = `"${reviewText}"`;
+
+      const ratingDiv = document.createElement('p');
+      ratingDiv.className = 'rating';
+
+
+      const starCount = rating.length;
+      for (let i = 0; i < 5; i++) {
+        const star = document.createElement('i');
+        star.className = i < starCount ? 'fa-solid fa-star' : 'fa-regular fa-star';
+        ratingDiv.appendChild(star);
+      }
+
+      newCard.appendChild(reviewerInfo);
+      newCard.appendChild(reviewPara);
+      newCard.appendChild(ratingDiv);
+
+      document.querySelector('.reviews-container').appendChild(newCard);
+
+      this.reset();
+      submitBtn.textContent = "Submit";
+      submitBtn.disabled = false;
+    }, 1000);
+  });
+</script>
+
+
+
+    </script>
 </body>
+
 </html>
