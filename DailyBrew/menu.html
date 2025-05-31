@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu | The Daily Brew</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="menu">
     <header>
         <h1>The Daily Brew</h1>
         <nav>
@@ -17,54 +19,127 @@
     </header>
 
 
-    <main class="menu">
+    <main class="menu-cards">
         <h2>Our Menu</h2>
-        <div class="menu-items">
-            <div class="menu-card">
-                <img src="images/iceteaa.jpg" alt="coffee">
-                <h3>Iced Coffee</h3>
-                <p>Chilled brew perfect for summer</p>
-                <span>$2.50</span>
-            </div>
 
-            <div class="menu-card">
-                <img src="images/cappucinoo.jpg" alt="">
-                <h3>Cappucino</h3>
-                <p>Balanced mix of espresso, milk, and foam</p>
-                <span>$3.00</span>
-            </div>
+        <section class="menu-section">
+            <h3>Drinks</h3>
+            <div class="carousel drinks-carousel">
+                <div class="carousel-track">
+                    <div class="card">
+                        <img src="images/iceteaa.jpg" alt="coffee">
+                        <h4>Iced Coffee</h4>
+                        <p>Chilled brew perfect for summer</p>
+                        <span>$2.50</span>
+                    </div>
 
-            <div class="menu-card">
-                <img src="images/espressoo.jpg" alt="">
-                <h3>Espresso</h3>
-                <p>Strong and bold  shot of pure coffee</p>
-                <span>$6.00</span>
-            </div>
+                    <div class="card">
+                        <img src="images/cappucinoo.jpg" alt="">
+                        <h4>Cappucino</h4>
+                        <p>Balanced mix of espresso, milk, and foam</p>
+                        <span>$3.00</span>
+                    </div>
 
-            <div class="menu-card">
-                <img src="images/lattee.jpg" alt="">
-                <h3>Latte</h3>
-                <p>Rich espresso with streamed milk and foam</p>
-                <span>$7.00</span>
-            </div>
+                    <div class="card">
+                        <img src="images/espressoo.jpg" alt="">
+                        <h4>Espresso</h>
+                            <p>Strong and bold shot of pure coffee</p>
+                            <span>$6.00</span>
+                    </div>
 
-            <div class="menu-card">
-                <img src="images/mochaa.jpg" alt="">
-                <h3>Mocha</h3>
-                <p>Espresso blended with chocolate and milk</p>
-                <span>$4.00</span>
+                    <div class="card">
+                        <img src="images/lattee.jpg" alt="">
+                        <h4>Latte</h4>
+                        <p>Rich espresso with streamed milk and foam</p>
+                        <span>$7.00</span>
+                    </div>
+
+                    <div class="card">
+                        <img src="images/mochaa.jpg" alt="">
+                        <h4>Mocha</h4>
+                        <p>Espresso blended with chocolate and milk</p>
+                        <span>$4.00</span>
+                    </div>
+                </div>
             </div>
-            
-        </div>
+        </section>
+
+
+        <section class="menu-section">
+            <h3>Snacks</h3>
+            <div class="carousel snacks-carousel">
+                <div class="carousel-track reverse">
+                    <div class="card">
+                        <img src="images/chocomuffinss.jpg" alt="">
+                        <h4>Muffin</h4>
+                        <p>Chocolate flavored snacks and dessert</p>
+                        <span>$2.00</span>
+                    </div>
+
+                    <div class="card">
+                        <img src="images/sandwichh.jpg" alt="">
+                        <h4>Sandwich</h4>
+                        <p>Filled with meat, cheese and veges</p>
+
+                        <span>$4.00</span>
+                    </div>
+                    <div class="card">
+                        <img src="images/cookk.jpg" alt="">
+                        <h4>Cookie</h4>
+                        <p>Sweet treats with spread eggs and butter</p>
+                        <span>$1.50</span>
+                    </div>
+
+                    <div class="card">
+                        <img src="images/pastryy.jpg" alt="">
+                        <h4>Pastry</h4>
+                        <p>Delicate and crumbly with sweet butter</p>
+                        <span>$6.00</span>
+                    </div>
+
+                    <div class="card">
+                        <img src="images/nutss.jpg" alt="">
+                        <h4>Nuts</h4>
+                        <p>Cashews, Pistachios, Almonds...</p>
+                        <span>$7.30</span>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <p>&copy; 2025 The Daily Brew</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('.carousel-track').forEach(track => {
 
-    
+            const cards = Array.from(track.children);
+            cards.forEach(card => {
+                const clone = card.cloneNode(true)
+                track.appendChild(clone);
+            });
+
+            track.addEventListener('mouseenter', () => {
+                track.style.animationPlayState = 'paused';
+            });
+            track.addEventListener('mouseleave', () => {
+                track.style.animationPlayState = 'running';
+            });
+
+        });
+
+
+    </script>
+
+
 
 </body>
+
 </html>
