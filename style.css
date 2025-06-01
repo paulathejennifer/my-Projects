@@ -1,11 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+    
+}
 body{
     margin: 0;
+    height: 100%;
+    overflow: hidden;
 }
 .hero{
     background-image: url(images/text.avif);
     background-size: cover;
     background-position: center;
-    height: 96vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,6 +21,7 @@ body{
     text-align: center;
     padding: 20px;
     position: relative;
+    
 }
 
 .hero::before{
@@ -212,9 +221,9 @@ h1{
     opacity: 1;
     transform: scale(1);
 } 
-footer{
+#menu-footer{
     color: #5c3636;
-    transform: translate(0, -800%);
+    transform: translate(0, -600%);
 }
 
 body.reviews-page{
@@ -223,6 +232,9 @@ body.reviews-page{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 2rem;
+}
+header a{
+    text-decoration: none;
 }
 
 header h2{
@@ -298,12 +310,12 @@ transform: translateY(-5px);
     flex-direction: column;
     gap: 1rem;
     max-width: 800px;
-    margin-left: 490px;
+    margin: 0 auto;
     border-radius: 20px;
 
 }
-#review-form input
-#review-form textarea
+#review-form input,
+#review-form textarea,
 #review-form select{
     padding: 0.75rem;
     border-radius: 8px;
@@ -325,3 +337,220 @@ transform: translateY(-5px);
 #review-form button:hover{
     background-color: #e76f51;
 }
+#reviews-footer{
+    transform: translate(0, 100px);
+    text-align: center;
+     color: #5c3636;
+}
+
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  header h1{
+    padding-bottom: 1.3cm;
+    transform: translate(0, -25%);
+  }
+
+  nav {
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1px;
+  }
+
+  nav a {
+    margin: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .menu h2 {
+    font-size: 2rem;
+  }
+
+  .menu-section h3 {
+    font-size: 1.5rem;
+    padding-top: 0.9cm;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    width: 100%;
+  }
+
+  .carousel-track {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .card {
+    min-width: 150px !important;
+    padding: 10px !important;
+  }
+
+  .card img {
+    height: 130px !important;
+  }
+
+  h2, h3 {
+    font-size: 1.3rem !important;
+  }
+
+  nav a {
+    font-size: 1rem !important;
+    margin: 0.4rem 0.7rem !important;
+  }
+}
+@media (max-width: 1024px) {
+  header h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #review-form {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .review-info {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .reviewer-avatar {
+    width: 35px;
+    height: 35px;
+  }
+
+  .submit-review h2 {
+    font-size: 1.8rem;
+  }
+
+  #review-form input,
+  #review-form textarea,
+  #review-form select {
+    font-size: 0.95rem;
+  }
+
+  #review-form button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body.reviews-page {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header h2 {
+    font-size: 1.3rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .reviews-container {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-review {
+    padding: 1rem;
+  }
+
+  #review-form {
+    width: 100%;
+    margin: 0 auto;
+    gap: 0.75rem;
+  }
+
+  #review-form input,
+  #review-form textarea,
+  #review-form select {
+    padding: 0.6rem;
+  }
+
+  #review-form button {
+    padding: 0.6rem;
+    font-size: 0.95rem;
+  }
+  
+}
+
+
+
+
+
+@media (max-width: 1024px) {
+  .hero-content h2 {
+    font-size: 4rem;
+  }
+
+  .hero-content p {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    padding: 16px 32px;
+    font-size: 1rem;
+  }
+
+  .hero-content img {
+    width: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 15px;
+  }
+
+  .hero-content h2 {
+    font-size: 3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    max-width: 90%;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+
+  .hero-content img {
+    width: 16px;
+  }
+}
+
