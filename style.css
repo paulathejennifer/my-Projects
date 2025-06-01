@@ -325,3 +325,65 @@ transform: translateY(-5px);
 #review-form button:hover{
     background-color: #e76f51;
 }
+
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  header h1{
+    padding-bottom: 0.5cm;
+  }
+
+  nav {
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  nav a {
+    margin: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .menu h2 {
+    font-size: 2rem;
+  }
+
+  .menu-section h3 {
+    font-size: 1.5rem;
+    padding-top: 0.9cm;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    width: 100%;
+  }
+
+  .carousel-track {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .card {
+    min-width: 150px !important;
+    padding: 10px !important;
+  }
+
+  .card img {
+    height: 130px !important;
+  }
+
+  h2, h3 {
+    font-size: 1.3rem !important;
+  }
+
+  nav a {
+    font-size: 1rem !important;
+    margin: 0.4rem 0.7rem !important;
+  }
+}
