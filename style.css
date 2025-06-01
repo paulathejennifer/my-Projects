@@ -7,12 +7,12 @@
 .reviews-page{
     margin: 0;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 .home-page{
     margin: 0;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 .hero{
     background-image: url(images/text.avif);
