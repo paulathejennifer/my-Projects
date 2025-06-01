@@ -4,7 +4,12 @@
     
     
 }
-body{
+.reviews-page{
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.home-page{
     margin: 0;
     height: 100%;
     overflow: hidden;
@@ -79,7 +84,7 @@ body{
     padding: 40px 20px;
     text-align: center;
     background-color: black;
-    overflow: hidden;
+    
 }
 .menu nav{
     position: relative;
