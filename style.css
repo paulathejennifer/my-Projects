@@ -223,7 +223,7 @@ h1{
 } 
 #menu-footer{
     color: #5c3636;
-    transform: translate(0, -800%);
+    transform: translate(0, -600%);
 }
 
 body.reviews-page{
@@ -232,6 +232,9 @@ body.reviews-page{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 2rem;
+}
+header a{
+    text-decoration: none;
 }
 
 header h2{
@@ -335,6 +338,7 @@ transform: translateY(-5px);
     background-color: #e76f51;
 }
 #reviews-footer{
+    transform: translate(0, 100px);
     text-align: center;
      color: #5c3636;
 }
@@ -345,7 +349,8 @@ transform: translateY(-5px);
     align-items: center;
   }
   header h1{
-    padding-bottom: 0.5cm;
+    padding-bottom: 1.3cm;
+    transform: translate(0, -25%);
   }
 
   nav {
@@ -354,7 +359,7 @@ transform: translateY(-5px);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 1px;
   }
 
   nav a {
