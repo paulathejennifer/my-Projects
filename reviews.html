@@ -12,15 +12,17 @@
 
 <body class="reviews-page">
     <header>
-       <a href="index.html"><h1>The Daily Brew</h1></a> 
-         <h2>What Our Customers Say</h2>
+        <a href="index.html">
+            <h1>The Daily Brew</h1>
+        </a>
+        <h2>What Our Customers Say</h2>
 
         <nav>
             <a href="index.html">Home</a>
             <a href="menu.html">Menu</a>
             <a href="reviews.html">Reviews</a>
         </nav>
-       
+
     </header>
 
     <section class="reviews-container">
@@ -108,91 +110,91 @@
     </section>
 
 
-    
-        
-<script>
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  });
-
-  document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 
 
-  document.getElementById('review-form').addEventListener('submit', function (e) {
-    e.preventDefault();
+    <script>
 
-    const name = document.getElementById('name').value.trim();
-    const reviewText = document.getElementById('review-text').value.trim();
-    const rating = document.getElementById('rating').value;
-    const submitBtn = document.querySelector('button[type="submit"]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
 
-    if (!name || !reviewText || !rating) {
-      alert("Please fill in all fields.");
-      return;
-    }
-
-    submitBtn.textContent = "Please wait...";
-    submitBtn.disabled = true;
-
-    setTimeout(() => {
-      alert("Thank you for your review!");
+        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 
 
-      const newCard = document.createElement('div');
-      newCard.classList.add('review-card', 'show');
+        document.getElementById('review-form').addEventListener('submit', function (e) {
+            e.preventDefault();
 
-      const reviewerInfo = document.createElement('div');
-      reviewerInfo.className = 'review-info';
+            const name = document.getElementById('name').value.trim();
+            const reviewText = document.getElementById('review-text').value.trim();
+            const rating = document.getElementById('rating').value;
+            const submitBtn = document.querySelector('button[type="submit"]');
 
-      const avatar = document.createElement('img');
-      avatar.src = 'images/default-avatar.png';
-      avatar.alt = name;
-      avatar.className = 'reviewer-avatar';
+            if (!name || !reviewText || !rating) {
+                alert("Please fill in all fields.");
+                return;
+            }
 
-      const h3 = document.createElement('h3');
-      h3.textContent = name;
+            submitBtn.textContent = "Please wait...";
+            submitBtn.disabled = true;
 
-      reviewerInfo.appendChild(avatar);
-      reviewerInfo.appendChild(h3);
-
-      const reviewPara = document.createElement('p');
-      reviewPara.textContent = `"${reviewText}"`;
-
-      const ratingDiv = document.createElement('p');
-      ratingDiv.className = 'rating';
+            setTimeout(() => {
+                alert("Thank you for your review!");
 
 
-      const starCount = rating.length;
-      for (let i = 0; i < 5; i++) {
-        const star = document.createElement('i');
-        star.className = i < starCount ? 'fa-solid fa-star' : 'fa-regular fa-star';
-        ratingDiv.appendChild(star);
-      }
+                const newCard = document.createElement('div');
+                newCard.classList.add('review-card', 'show');
 
-      newCard.appendChild(reviewerInfo);
-      newCard.appendChild(reviewPara);
-      newCard.appendChild(ratingDiv);
+                const reviewerInfo = document.createElement('div');
+                reviewerInfo.className = 'review-info';
 
-      document.querySelector('.reviews-container').appendChild(newCard);
+                const avatar = document.createElement('img');
+                avatar.src = 'images/default-avatar.png';
+                avatar.alt = name;
+                avatar.className = 'reviewer-avatar';
 
-      this.reset();
-      submitBtn.textContent = "Submit";
-      submitBtn.disabled = false;
-    }, 1000);
-  });
-</script>
+                const h3 = document.createElement('h3');
+                h3.textContent = name;
+
+                reviewerInfo.appendChild(avatar);
+                reviewerInfo.appendChild(h3);
+
+                const reviewPara = document.createElement('p');
+                reviewPara.textContent = `"${reviewText}"`;
+
+                const ratingDiv = document.createElement('p');
+                ratingDiv.className = 'rating';
+
+
+                const starCount = rating.length;
+                for (let i = 0; i < 5; i++) {
+                    const star = document.createElement('i');
+                    star.className = i < starCount ? 'fa-solid fa-star' : 'fa-regular fa-star';
+                    ratingDiv.appendChild(star);
+                }
+
+                newCard.appendChild(reviewerInfo);
+                newCard.appendChild(reviewPara);
+                newCard.appendChild(ratingDiv);
+
+                document.querySelector('.reviews-container').appendChild(newCard);
+
+                this.reset();
+                submitBtn.textContent = "Submit";
+                submitBtn.disabled = false;
+            }, 1000);
+        });
+    </script>
 
 
 
     <footer id="reviews-footer">
         <p>&copy; 2025 The Daily Brew</p>
     </footer>
-    
+
 </body>
 
 </html>
